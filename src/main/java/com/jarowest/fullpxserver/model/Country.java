@@ -3,9 +3,9 @@ package com.jarowest.fullpxserver.model;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -14,12 +14,8 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "countries")
-public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class Country extends BaseEntity {
+
     @Column(length = 45)
     String name;
-    @OneToMany(mappedBy = "country")
-    Set<City> cities = new HashSet<>();
 }

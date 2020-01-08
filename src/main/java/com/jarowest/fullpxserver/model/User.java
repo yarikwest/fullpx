@@ -14,29 +14,39 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class User extends BaseEntity {
+
     @Column(name = "first_name", length = 45, nullable = false)
     String firstName;
+
     @Column(name = "last_name", length = 45, nullable = false)
     String lastName;
-    @Column(length = 45, nullable = false)
+
+    @Column(length = 45, unique = true)
     String email;
+
     @Column(nullable = false)
     String password;
+
     @Column(length = 20)
     String phone;
+
     String description;
+
     @OneToOne
     @JoinColumn(name = "background_photo_id")
     Photo backgroundPhoto;
-    @OneToMany(mappedBy = "user")
-    Set<Photo> photos = new HashSet<>();
+
     @ManyToOne
     @JoinColumn(name = "city_id")
     City city;
-    @OneToMany(mappedBy = "user")
-    Set<Feedback> feedbacks = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    Set<Role> roles = new HashSet<>();
 }
