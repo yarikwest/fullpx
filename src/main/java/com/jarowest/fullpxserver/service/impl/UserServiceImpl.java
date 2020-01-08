@@ -32,13 +32,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(User user) {
-//        Role roleUser = roleRepository.findByName("ROLE_USER");
-//        Set<Role> userRoles = new HashSet<>();
-//        userRoles.add(roleUser);
+        Role roleUser = roleRepository.findByName("ROLE_USER");
+        Set<Role> userRoles = new HashSet<>();
+        userRoles.add(roleUser);
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        user.setRoles(userRoles);
-//        user.setStatus(Status.ACTIVE);
+        user.setRoles(userRoles);
+        user.setStatus(Status.ACTIVE);
 
         User registeredUser = userRepository.save(user);
         log.info("IN register - user: {} successfully registered", registeredUser);
@@ -56,6 +56,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByEmail(String email) {
         User result = userRepository.findByEmail(email);
+
+        if (result == null) {
+            log.warn("IN findById - no user found by email: {}", email);
+            return null;
+        }
+
         log.info("IN findByEmail - user: {} found by email: {}", result, email);
 
         return result;
@@ -68,7 +74,6 @@ public class UserServiceImpl implements UserService {
         if (result == null) {
             log.warn("IN findById - no user found by id: {}", id);
             return null;
-
         }
 
         log.info("IN findById - user: {} found by id: {}", result, id);

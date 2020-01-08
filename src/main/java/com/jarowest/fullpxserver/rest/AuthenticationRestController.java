@@ -1,6 +1,8 @@
 package com.jarowest.fullpxserver.rest;
 
 import com.jarowest.fullpxserver.dto.AuthenticationRequestDto;
+import com.jarowest.fullpxserver.dto.AuthenticationResponseDto;
+import com.jarowest.fullpxserver.dto.ResponseMessageDto;
 import com.jarowest.fullpxserver.model.User;
 import com.jarowest.fullpxserver.security.jwt.JwtTokenProvider;
 import com.jarowest.fullpxserver.service.UserService;
@@ -14,11 +16,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
-@RequestMapping("/cabinet")
+@RequestMapping("/cabinet/login")
 public class AuthenticationRestController {
 
     private final AuthenticationManager authenticationManager;
@@ -32,12 +31,7 @@ public class AuthenticationRestController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public ResponseEntity enter() {
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
-    @PostMapping("/login")
+    @PostMapping
     public ResponseEntity login(@RequestBody AuthenticationRequestDto requestDto) {
 
         try {
@@ -50,14 +44,18 @@ public class AuthenticationRestController {
 
             String token = jwtTokenProvider.createToken(email, user.getRoles());
 
-            Map<Object, Object> response = new HashMap<>();
-            response.put("email", email);
-            response.put("token", token);
+            AuthenticationResponseDto responseDto = new AuthenticationResponseDto();
+            responseDto.setEmail(email);
+            responseDto.setToken(token);
+            responseDto.setExpiresIn(jwtTokenProvider.getExpirationIn(token));
 
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(responseDto);
 
         } catch (AuthenticationException e) {
-            throw new BadCredentialsException("Invalid email or password");
+            return new ResponseEntity(
+                    new ResponseMessageDto("Invalid username or password", HttpStatus.UNAUTHORIZED.value()),
+                    HttpStatus.UNAUTHORIZED
+            );
         }
     }
 }
