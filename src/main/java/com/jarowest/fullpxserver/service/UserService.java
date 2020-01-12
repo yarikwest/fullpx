@@ -2,16 +2,20 @@ package com.jarowest.fullpxserver.service;
 
 import com.jarowest.fullpxserver.model.User;
 
-import java.util.List;
+import java.util.Set;
 
 public interface UserService {
     User register(User user);
 
-    List<User> getAll();
+    User findById(Long id);
 
     User findByEmail(String email);
 
-    User findById(Long id);
+    User findByUsername(String username);
 
-    void delete(Long id);
+    Set<User> findAll();
+
+    boolean existByUsername(String username);
+
+    boolean existByEmail(String email);
 }

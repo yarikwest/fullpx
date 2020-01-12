@@ -46,11 +46,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAll() {
-        List<User> users = userRepository.findAll();
+    public Set<User> findAll() {
+        Set<User> users = new HashSet<>(userRepository.findAll());
         log.info("IN getAll - {} users found", users);
 
         return users;
+    }
+
+    @Override
+    public boolean existByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    @Override
+    public boolean existByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
     @Override
@@ -58,11 +68,25 @@ public class UserServiceImpl implements UserService {
         User result = userRepository.findByEmail(email);
 
         if (result == null) {
-            log.warn("IN findById - no user found by email: {}", email);
+            log.warn("IN findByEmail - no user found by email: {}", email);
             return null;
         }
 
         log.info("IN findByEmail - user: {} found by email: {}", result, email);
+
+        return result;
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        User result = userRepository.findByUsername(username);
+
+        if (result == null) {
+            log.warn("IN findByUsername - no user found by username: {}", username);
+            return null;
+        }
+
+        log.info("IN findByUsername - user: {} found by username: {}", result, username);
 
         return result;
     }
@@ -81,9 +105,4 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
-    @Override
-    public void delete(Long id) {
-        userRepository.deleteById(id);
-        log.info("IN delete - user with id: {} successfully deleted", id);
-    }
 }
