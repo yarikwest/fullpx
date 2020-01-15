@@ -17,9 +17,9 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "categories")
-public class Category extends BaseEntity{
+public class Category extends BaseEntity {
 
-    @Column(length = 45)
+    @Column(length = 45, unique = true)
     String name;
 
     @ManyToMany(mappedBy = "categories")

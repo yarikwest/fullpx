@@ -10,7 +10,7 @@ public interface AlbumService {
 
     Album find(String name);
 
-    Set<Album> findByUserId(Long id);
+    Set<Album> findByUsername(String username);
 
 
 }

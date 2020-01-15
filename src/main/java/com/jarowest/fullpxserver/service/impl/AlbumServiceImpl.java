@@ -38,13 +38,13 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
-    public Set<Album> findByUserId(Long id) {
-        Set<Album> result = albumRepository.findAllByUserId(id);
+    public Set<Album> findByUsername(String username) {
+        Set<Album> result = albumRepository.findAllByUsername(username);
 
         if (result.isEmpty()) {
-            log.info("IN findByUserId - albums with user id: {} was not found", id);
+            log.info("IN findByUsername - albums with username: {} was not found", username);
         } else {
-            log.info("IN findByUserId - albums with user id: {} was found", id);
+            log.info("IN findByUsername - albums with username: {} was found", username);
         }
         return result;
     }
