@@ -6,11 +6,21 @@ import {GalleryComponent} from '../gallery/gallery.component';
 import {PhotoDetailsComponent} from '../photo-details/photo-details.component';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import {MzButtonModule, MzCardModule, MzIconModule, MzInputModule, MzModalModule, MzSelectModule, MzTabModule} from 'ngx-materialize';
+import {
+  MzButtonModule,
+  MzCardModule,
+  MzIconModule,
+  MzInputModule,
+  MzModalModule,
+  MzSelectModule,
+  MzTabModule,
+  MzTextareaModule
+} from 'ngx-materialize';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {RefDirective} from './ref.directive';
 import {CommunicateService} from './services/communicate.service';
+import {FeedbackService} from './services/feedback.service';
 
 @NgModule({
   imports: [
@@ -26,6 +36,8 @@ import {CommunicateService} from './services/communicate.service';
     MzCardModule,
     MzInputModule,
     MzSelectModule,
+    MzTextareaModule,
+
   ],
   exports: [
     FormsModule,
@@ -43,10 +55,12 @@ import {CommunicateService} from './services/communicate.service';
     MzCardModule,
     MzInputModule,
     MzSelectModule,
+    MzTextareaModule,
   ],
   providers: [
     UserService,
     PhotoService,
+    FeedbackService,
     CommunicateService,
   ],
   declarations: [

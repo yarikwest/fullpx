@@ -87,3 +87,7 @@ form.row {
 .card{
   border-radius: 20px;
 }
+
+.card .card-content .card-title i{
+  line-height: 40px;
+}

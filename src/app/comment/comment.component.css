@@ -2,3 +2,12 @@
   margin-left: 100px;
   margin-right: 100px;
 }
+
+.feedback-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-date {
+  font-size: 18px;
+}

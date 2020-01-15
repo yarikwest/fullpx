@@ -2,9 +2,12 @@
   class="blue-grey white-text"
   [hoverable]="'true'">
   <mz-card-title>
-    Card Title
+    <div class="feedback-head">
+      <span>{{feedback.author}}</span>
+      <span class="feedback-date">{{feedback.created | date : 'd MMM y, h:mm a'}}</span>
+    </div>
   </mz-card-title>
   <mz-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, repudiandae.
+    {{feedback.text}}
   </mz-card-content>
 </mz-card>

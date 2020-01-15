@@ -13,7 +13,7 @@ import {AuthInterceptor} from './shared/services/auth.interceptor';
 import {UserPageComponent} from './user-page/user-page.component';
 import {UserPageAboutComponent} from './user-page-about/user-page-about.component';
 import {UserPageAlbumsComponent} from './user-page-albums/user-page-albums.component';
-import {UserPageCommentsComponent} from './user-page-comments/user-page-comments.component';
+import {UserPageFeedbackComponent} from './user-page-feedback/user-page-feedback.component';
 import { AlbumCardComponent } from './album-card/album-card.component';
 import { AlbumComponent } from './album/album.component';
 import { CommentComponent } from './comment/comment.component';
@@ -41,7 +41,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     UserPageComponent,
     UserPageAboutComponent,
     UserPageAlbumsComponent,
-    UserPageCommentsComponent,
+    UserPageFeedbackComponent,
     AlbumCardComponent,
     AlbumComponent,
     CommentComponent,

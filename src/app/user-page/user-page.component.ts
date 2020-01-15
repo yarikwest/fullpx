@@ -22,8 +22,6 @@ export class UserPageComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    M.AutoInit();
-
     this.route.data.subscribe(data => {
       this.user = data.user;
       // if (this.user.backgroundPhotoUrl === null) {
@@ -54,6 +52,8 @@ export class UserPageComponent implements OnInit, DoCheck {
       this.photos.push(data.photos[6]);
 
       this.communicateService.setPhotos(this.photos);
+      M.AutoInit();
+
     });
   }
 

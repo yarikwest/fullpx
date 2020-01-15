@@ -7,7 +7,7 @@ import {SignUpPageComponent} from './cabinet/sign-up-page/sign-up-page.component
 import {GalleryComponent} from './gallery/gallery.component';
 import {UserPageComponent} from './user-page/user-page.component';
 import {UserPageAboutComponent} from './user-page-about/user-page-about.component';
-import {UserPageCommentsComponent} from './user-page-comments/user-page-comments.component';
+import {UserPageFeedbackComponent} from './user-page-feedback/user-page-feedback.component';
 import {UserPageAlbumsComponent} from './user-page-albums/user-page-albums.component';
 import {UserResolver} from './shared/user.resolver';
 import {AlbumComponent} from './album/album.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
           {path: ':username/about', component: UserPageAboutComponent},
           {path: ':username/photos', component: GalleryComponent},
           {path: ':username/albums', component: UserPageAlbumsComponent},
-          {path: ':username/comments', component: UserPageCommentsComponent},
+          {path: ':username/feedback', component: UserPageFeedbackComponent},
           {path: ':username/albums/:album', component: AlbumComponent, resolve: {album: AlbumResolver}}
         ]
       }

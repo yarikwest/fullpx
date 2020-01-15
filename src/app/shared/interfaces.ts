@@ -45,3 +45,9 @@ export interface Album {
   photos: Photo[];
 }
 
+export interface Feedback {
+  author: string;
+  text: string;
+  username: string;
+  created?: Date;
+}
