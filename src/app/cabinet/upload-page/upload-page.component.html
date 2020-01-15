@@ -1,0 +1,46 @@
+<div class="container">
+  <div *ngIf="previewUrl">
+    <img [src]="previewUrl" height="300">
+  </div>
+
+  <form method="post" [formGroup]="form" (ngSubmit)="uploadFileToActivity()">
+
+    <div class="file-field input-field col s6">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" id="file" formControlName="file" accept="image/*"
+               (change)="handleFileInput($event.target.files)">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
+    <mz-input-container class="col s6">
+      <input mz-input
+             id="description"
+             formControlName="description"
+             type="text"
+             [label]="'Description'"
+             [placeholder]="'Enter description'">
+    </mz-input-container>
+
+    <mz-select-container class="col s6">
+      <select mz-select multiple
+              id="categories"
+              formControlName="categories"
+              [label]="'Categories'"
+              [placeholder]="'Select categories'"
+      >
+        <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
+      </select>
+    </mz-select-container>
+
+    <button mz-button [disabled]="form.invalid" type="submit"
+    >Upload<i class="material-icons right">send</i>
+    </button>
+
+  </form>
+
+
+</div>

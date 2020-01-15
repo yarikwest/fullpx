@@ -1,0 +1,39 @@
+.coverphoto {
+  background-image: url("../../../assets/images/sample-2.jpg");
+  background-size: cover;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.coverphoto .container {
+  display: flex;
+}
+
+.title-block {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-block .title {
+  flex-grow: 1;
+}
+
+.avatar {
+  background-image: url("../../../assets/images/photo.jpg");
+  background-size: cover;
+  float: left;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  margin: 0 20px 20px 0;
+}
+
+.box-mail {
+  border: 1px solid white;
+  padding: 5px 17px 0;
+  border-radius: 5px;
+  color: white;
+}

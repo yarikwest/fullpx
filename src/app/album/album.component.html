@@ -1,0 +1,12 @@
+<mz-card *ngIf="album"
+  class="blue-grey darken-1 white-text col s12"
+  [hoverable]="true">
+  <mz-card-title>
+    {{album.name}}
+  </mz-card-title>
+  <mz-card-content>
+    {{album.description}}
+  </mz-card-content>
+</mz-card>
+
+<app-gallery *ngIf="album" [photos]="album.photos"></app-gallery>

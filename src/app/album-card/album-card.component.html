@@ -1,0 +1,17 @@
+<div class="col l4 m6 s12">
+  <mz-card
+    class="blue-grey darken-3 white-text"
+    [hoverable]="true">
+    <mz-card-image>
+      <div class="album-cover">
+        <img
+          *ngFor="let photo of album.photos | slice :0:4"
+          [src]=photo.imageUrl
+          class="col s6"/>
+      </div>
+    </mz-card-image>
+    <mz-card-content>
+      {{album.name}}
+    </mz-card-content>
+  </mz-card>
+</div>

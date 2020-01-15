@@ -1,0 +1,23 @@
+<div class="block-wrapper">
+  <div class="wrapper grey darken-4">
+    <div class="container">
+      <ul class="tabs grey darken-4">
+        <li class="tab">
+          <a
+            [routerLink]="['/browse']"
+            [class.active]="categoryParam === 'all'"
+            (click)="getPhotos('all')">all</a>
+        </li>
+        <li class="tab" *ngFor="let category of categories">
+          <a
+            [routerLink]="['/browse']"
+            [class.active]="categoryParam === category"
+            (click)="getPhotos(category)">{{category}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <app-gallery [photos]="photos"></app-gallery>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div id="login-page">
+  <div class="login-form">
+    <div class="container">
+      <h2 class="center-align">Log In</h2>
+      <div class="center-align">Don't have an account? <a routerLink="/sign-up">Join</a></div>
+      <div class="center-align red-text" *ngIf="auth.error$ | async as error">
+        {{error}}
+      </div>
+      <div class="center-align red-text" *ngIf="message">
+        {{message}}
+      </div>
+      <form action="" method="post" class="row" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="input-field col s12">
+          <input id="email" type="email" formControlName="email"
+                 [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid
+                 , valid: form.get('email').valid}"
+          >
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="password" type="password" formControlName="password"
+                 [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid,
+                 valid: form.get('password').valid}"
+          >
+          <label for="password">Password</label>
+          <span class="helper-text">min.8 char</span>
+        </div>
+
+        <button
+          class="btn waves-effect waves-light right" type="submit" name="action"
+          [disabled]="form.invalid"
+        >Log In<i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="login-img">
+    <h2>Welcome back.</h2>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div id="signup-page">
+  <div class="signup-img">
+    <h2>Inspire yourself first</h2>
+  </div>
+  <div class="signup-form">
+    <div class="container">
+      <h2 class="center-align">Join Fullpx</h2>
+      <div class="center-align">Already have an account? <a [routerLink]="['/cabinet', 'login']">Log in</a></div>
+      <div class="center-align red-text" *ngIf="auth.error$ | async as error">
+        {{error}}
+      </div>
+      <form action="" method="post" class="row" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" formControlName="firstName"
+                 [ngClass]="{invalid: form.get('firstName').touched && form.get('firstName').invalid,
+                 valid: form.get('firstName').valid}"
+          >
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" formControlName="lastName"
+                 [ngClass]="{invalid: form.get('lastName').touched && form.get('lastName').invalid,
+                 valid: form.get('lastName').valid}"
+          >
+          <label for="last_name">Last Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="username" type="text" formControlName="username"
+                 [ngClass]="{invalid: form.get('username').touched && form.get('username').invalid,
+                 valid: form.get('username').valid}"
+          >
+          <label for="username">Username</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="email" type="email" formControlName="email"
+                 [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid,
+                 valid: form.get('email').valid}"
+          >
+          <label for="email">Email</label>
+          <span class="helper-text" data-error="wrong" data-success="right"></span>
+        </div>
+        <div class="input-field col s12">
+          <input id="password" type="password" formControlName="password"
+                 [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid,
+                 valid: form.get('password').valid}"
+          >
+          <label for="password">Password</label>
+          <span class="helper-text" data-error="too short">min.8 char</span>
+        </div>
+        <div class="input-field col s12">
+          <input id="password-conf" type="password" formControlName="passwordConf"
+                 [ngClass]="{invalid: form.get('passwordConf').touched && (form.get('passwordConf').value != form.get('password').value),
+                 valid: form.get('passwordConf').touched && form.get('passwordConf').valid && (form.get('passwordConf').value == form.get('password').value)}"
+          >
+          <label for="password-conf">Confirm password</label>
+          <span class="helper-text" data-error="don't match" data-success="OK"></span>
+        </div>
+
+        <button class="btn waves-effect waves-light right" type="submit" name="action"
+                [disabled]="form.invalid"
+        >Sign up
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
