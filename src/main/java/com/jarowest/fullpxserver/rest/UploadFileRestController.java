@@ -4,7 +4,7 @@ import com.jarowest.fullpxserver.model.Category;
 import com.jarowest.fullpxserver.model.Photo;
 import com.jarowest.fullpxserver.repository.CategoryRepository;
 import com.jarowest.fullpxserver.security.jwt.JwtTokenProvider;
-import com.jarowest.fullpxserver.service.AmazonClient;
+import com.jarowest.fullpxserver.service.impl.AmazonClient;
 import com.jarowest.fullpxserver.service.PhotoService;
 import com.jarowest.fullpxserver.service.UserService;
 import org.springframework.http.HttpStatus;

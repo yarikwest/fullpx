@@ -1,4 +1,4 @@
-package com.jarowest.fullpxserver.service;
+package com.jarowest.fullpxserver.service.impl;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
