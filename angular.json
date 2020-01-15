@@ -24,9 +24,17 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/materialize-css/dist/css/materialize.css",
+              "node_modules/flex-gallery/dist/flex-gallery.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/materialize-css/dist/js/materialize.js",
+              "node_modules/dynamics.js/lib/dynamics.min.js",
+              "node_modules/flex-gallery/dist/flex-gallery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -89,9 +97,17 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/materialize-css/dist/css/materialize.css",
+              "node_modules/flex-gallery/dist/flex-gallery.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/materialize-css/dist/js/materialize.js",
+              "node_modules/dynamics.js/lib/dynamics.min.js",
+              "node_modules/flex-gallery/dist/flex-gallery.min.js"
+            ]
           }
         },
         "lint": {
@@ -120,6 +136,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "fullpx-client"
 }

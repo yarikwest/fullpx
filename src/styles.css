@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #282c34;
+  color: white;
+}
+
+app-root > :last-child {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main, main > :last-child {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+input {
+  color: white;
+}
+
+.block-wrapper {
+  flex: 1 0 auto;
+  width: 100vw;
+}
+
+.tabs .tab a {
+  color: white;
+}
+
+.tabs .indicator {
+  /*background-color: #0277bd;*/
+  background-color: rgba(0,0,0,0);
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background-color: rgba(2, 119, 189, 0.2);
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: #0277bd;
+}
+
+.row-img {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-img {
+  flex: 33%;
+  padding: 5px;
+}
+
+.column-img img.materialboxed {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column-img {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column-img {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+#signFb {
+  margin: 50px 0;
+}
+
+form.row {
+  margin-top: 20px;
+}
+
+.input-field .helper-text {
+  color: rgba(200, 200, 200, 0.54);
+}
+
+.card{
+  border-radius: 20px;
+}
