@@ -9,6 +9,11 @@ export interface AuthResponse {
   expiresIn: string;
 }
 
+export interface MsgResponse {
+  object: string;
+  code: number;
+}
+
 export interface SignUpDataObject {
   firstName: string;
   lastName: string;
@@ -50,4 +55,11 @@ export interface Feedback {
   text: string;
   username: string;
   created?: Date;
+}
+
+export interface Message {
+  to: string;
+  text: string;
+  clientEmail: string;
+  clientPhone: string;
 }

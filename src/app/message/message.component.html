@@ -1,0 +1,44 @@
+<mz-modal [fixedFooter]="true" >
+  <mz-modal-header>
+    <h4>Send email to photographer</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <form id="form" method="post" [formGroup]="form" (ngSubmit)="send()">
+      <mz-input-container>
+        <input mz-input
+               id="email"
+               type="email"
+               formControlName="email"
+               [label]="'Your Email'"
+               [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid,
+               valid: form.get('email').valid}"
+        >
+      </mz-input-container>
+      <mz-input-container>
+        <input mz-input
+               id="phone"
+               type="text"
+               formControlName="phone"
+               [label]="'Your Phone'"
+        >
+      </mz-input-container>
+      <mz-textarea-container>
+      <textarea mz-textarea class="white-text"
+                id="text"
+                length="255"
+                formControlName="text"
+                [label]="'Your message'"
+                [ngClass]="{invalid: form.get('text').touched && form.get('text').invalid,
+                valid: form.get('text').valid}"
+      ></textarea>
+      </mz-textarea-container>
+    </form>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button type="submit" form="form"
+            [disabled]="form.invalid"
+    ><i mz-icon [icon]="'send'" [align]="'right'"></i>
+      Send
+    </button>
+  </mz-modal-footer>
+</mz-modal>

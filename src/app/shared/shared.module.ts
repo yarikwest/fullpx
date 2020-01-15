@@ -14,13 +14,14 @@ import {
   MzModalModule,
   MzSelectModule,
   MzTabModule,
-  MzTextareaModule
+  MzTextareaModule,
 } from 'ngx-materialize';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
 import {RefDirective} from './ref.directive';
 import {CommunicateService} from './services/communicate.service';
 import {FeedbackService} from './services/feedback.service';
+import {MessageComponent} from '../message/message.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,6 @@ import {FeedbackService} from './services/feedback.service';
     MzInputModule,
     MzSelectModule,
     MzTextareaModule,
-
   ],
   exports: [
     FormsModule,
@@ -46,6 +46,7 @@ import {FeedbackService} from './services/feedback.service';
     HttpClientModule,
     ReactiveFormsModule,
     FlexGalleryPipe,
+    MessageComponent,
     GalleryComponent,
     PhotoDetailsComponent,
     MzTabModule,
@@ -56,6 +57,7 @@ import {FeedbackService} from './services/feedback.service';
     MzInputModule,
     MzSelectModule,
     MzTextareaModule,
+    RefDirective,
   ],
   providers: [
     UserService,
@@ -67,9 +69,11 @@ import {FeedbackService} from './services/feedback.service';
     RefDirective,
     FlexGalleryPipe,
     GalleryComponent,
+    MessageComponent,
     PhotoDetailsComponent
   ],
   entryComponents: [
+    MessageComponent,
     PhotoDetailsComponent,
   ]
 })

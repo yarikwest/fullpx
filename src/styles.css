@@ -29,8 +29,7 @@ input {
 }
 
 .tabs .indicator {
-  /*background-color: #0277bd;*/
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
@@ -72,10 +71,6 @@ input {
   }
 }
 
-#signFb {
-  margin: 50px 0;
-}
-
 form.row {
   margin-top: 20px;
 }
@@ -84,10 +79,18 @@ form.row {
   color: rgba(200, 200, 200, 0.54);
 }
 
-.card{
+.card {
   border-radius: 20px;
 }
 
-.card .card-content .card-title i{
+.card .card-content .card-title i {
   line-height: 40px;
+}
+
+.modal, .modal .modal-footer {
+  background-color: #263238;
+}
+
+.modal.modal-fixed-footer .modal-footer {
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
