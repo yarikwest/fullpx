@@ -22,6 +22,8 @@ import {RefDirective} from './ref.directive';
 import {CommunicateService} from './services/communicate.service';
 import {FeedbackService} from './services/feedback.service';
 import {MessageComponent} from '../message/message.component';
+import {AlbumComponent} from '../album/album.component';
+import {CommentComponent} from '../comment/comment.component';
 
 @NgModule({
   imports: [
@@ -48,6 +50,7 @@ import {MessageComponent} from '../message/message.component';
     FlexGalleryPipe,
     MessageComponent,
     GalleryComponent,
+    CommentComponent,
     PhotoDetailsComponent,
     MzTabModule,
     MzModalModule,
@@ -68,8 +71,10 @@ import {MessageComponent} from '../message/message.component';
   declarations: [
     RefDirective,
     FlexGalleryPipe,
+    AlbumComponent,
     GalleryComponent,
     MessageComponent,
+    CommentComponent,
     PhotoDetailsComponent
   ],
   entryComponents: [
