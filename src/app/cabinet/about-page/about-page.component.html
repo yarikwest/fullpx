@@ -1,0 +1,64 @@
+<button class="waves-effect waves-light btn-floating" (click)="toggleVisible()">
+  <i class="material-icons">edit</i>
+</button>
+<button class="waves-effect waves-light btn red" type="submit" form="form"
+        *ngIf="isVisible"
+        [disabled]="form.invalid"
+>
+  <i class="material-icons">save</i>
+</button>
+<div class="row" *ngIf="user">
+  <form id="form" method="post" [formGroup]="form" (ngSubmit)="submit()">
+    <mz-card
+      class="blue-grey darken-3 white-text col m5 s12"
+      [hoverable]="true">
+      <mz-card-title>
+        City
+      </mz-card-title>
+      <mz-card-content>
+        <span *ngIf="!isVisible">{{user.city}}</span>
+        <textarea
+          id="city"
+          class="materialize-textarea white-text"
+          *ngIf="isVisible"
+          formControlName="city"
+        ></textarea>
+      </mz-card-content>
+    </mz-card>
+    <mz-card
+      class="blue-grey darken-3 white-text col m5 s12 offset-m2"
+      [hoverable]="true">
+      <mz-card-title>
+        Phone
+      </mz-card-title>
+      <mz-card-content>
+        <span *ngIf="!isVisible">{{user.phone}}</span>
+        <textarea
+          id="phone"
+          class="materialize-textarea white-text"
+          *ngIf="isVisible"
+          formControlName="phone"
+        ></textarea>
+      </mz-card-content>
+    </mz-card>
+    <mz-card
+      class="blue-grey darken-3 white-text col s12"
+      [hoverable]="true">
+      <mz-card-title>
+        About me
+      </mz-card-title>
+      <mz-card-content>
+        <span *ngIf="!isVisible">{{user.description}}</span>
+        <textarea
+          id="description"
+          class="materialize-textarea white-text"
+          maxlength="255"
+          *ngIf="isVisible"
+          formControlName="description"
+          [ngClass]="{invalid: form.get('description').touched && form.get('description').invalid,
+          valid: form.get('description').valid}"
+        ></textarea>
+      </mz-card-content>
+    </mz-card>
+  </form>
+</div>

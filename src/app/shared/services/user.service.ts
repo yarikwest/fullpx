@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../interfaces';
-import {map} from 'rxjs/operators';
 
 const URL = 'http://localhost:8080';
 
@@ -18,10 +17,10 @@ export class UserService {
   }
 
   getUser(username: string): Observable<User> {
-    return this.http.get(`${URL}/users/${username}`)
-      .pipe(
-        map((data: User) => {
-          return data;
-        }));
+    return this.http.get<User>(`${URL}/users/${username}`);
+  }
+
+  edit(user: User): Observable<User> {
+    return this.http.put<User>(`${URL}/users/${user.id}`, user);
   }
 }
