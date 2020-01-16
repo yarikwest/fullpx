@@ -40,7 +40,7 @@ public class User extends BaseEntity {
     @JoinColumn(name = "background_photo_id")
     Photo backgroundPhoto;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "city_id")
     City city;
 
