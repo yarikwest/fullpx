@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class AuthenticationResponseDto {
-    private String email;
+    private String username;
     private String token;
     private long expiresIn;
 }
