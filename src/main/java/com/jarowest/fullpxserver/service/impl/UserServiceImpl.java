@@ -46,6 +46,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User update(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
     public Set<User> findAll() {
         Set<User> users = new HashSet<>(userRepository.findAll());
         log.info("IN getAll - {} users found", users);

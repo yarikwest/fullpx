@@ -7,6 +7,8 @@ import java.util.Set;
 public interface UserService {
     User register(User user);
 
+    User update(User user);
+
     User findById(Long id);
 
     User findByEmail(String email);

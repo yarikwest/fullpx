@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -25,6 +26,11 @@ public class CityServiceImpl implements CityService {
         log.info("IN save - city {} was saved", city.toString());
 
         return result;
+    }
+
+    @Override
+    public Optional<City> findByName(String name) {
+        return cityRepository.findByName(name);
     }
 
     @Override
