@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Feedback} from '../../shared/interfaces';
-import {CommunicateService} from '../../shared/services/communicate.service';
 import {FeedbackService} from '../../shared/services/feedback.service';
 
 @Component({
@@ -10,18 +9,15 @@ import {FeedbackService} from '../../shared/services/feedback.service';
 })
 export class FeedbackPageComponent implements OnInit {
 
-  username: string;
   feedbackList: Feedback[] = [];
 
   constructor(
     private feedbackService: FeedbackService,
-    private communicateService: CommunicateService
   ) {
-    communicateService.user$.subscribe(user => this.username = user.username);
   }
 
   ngOnInit() {
-    this.feedbackService.getFeedbackList(this.username).subscribe(feedback => this.feedbackList = feedback);
+    this.feedbackService.getFeedbackList(localStorage.getItem('username')).subscribe(feedback => this.feedbackList = feedback);
   }
 
 }
