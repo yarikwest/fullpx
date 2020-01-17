@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {Album, Photo, User} from '../interfaces';
+import {Photo, User} from '../interfaces';
 
 @Injectable()
 export class CommunicateService {

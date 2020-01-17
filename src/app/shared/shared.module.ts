@@ -24,6 +24,8 @@ import {FeedbackService} from './services/feedback.service';
 import {MessageComponent} from '../message/message.component';
 import {AlbumComponent} from '../album/album.component';
 import {CommentComponent} from '../comment/comment.component';
+import {AlbumCardComponent} from '../album-card/album-card.component';
+import {AlbumService} from './services/album.service';
 
 @NgModule({
   imports: [
@@ -50,6 +52,7 @@ import {CommentComponent} from '../comment/comment.component';
     FlexGalleryPipe,
     MessageComponent,
     GalleryComponent,
+    AlbumCardComponent,
     CommentComponent,
     PhotoDetailsComponent,
     MzTabModule,
@@ -65,6 +68,7 @@ import {CommentComponent} from '../comment/comment.component';
   providers: [
     UserService,
     PhotoService,
+    AlbumService,
     FeedbackService,
     CommunicateService,
   ],
@@ -72,6 +76,7 @@ import {CommentComponent} from '../comment/comment.component';
     RefDirective,
     FlexGalleryPipe,
     AlbumComponent,
+    AlbumCardComponent,
     GalleryComponent,
     MessageComponent,
     CommentComponent,

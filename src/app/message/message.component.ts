@@ -45,7 +45,7 @@ export class MessageComponent extends MzBaseModal implements OnInit {
 
     this.messageService.send(msg).subscribe((resp) => {
       this.form.reset();
-      M.toast({html: resp.object, classes: 'rounded teal darken-1'});
+      M.toast({html: resp.message, classes: 'rounded teal darken-1'});
       this.close.emit();
     });
 

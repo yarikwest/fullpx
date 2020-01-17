@@ -1,10 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Message, MsgResponse} from '../interfaces';
+import {Message, MessageResponse} from '../interfaces';
 import {Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
-
-const URL = 'http://localhost:8080';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +14,7 @@ export class MessageService {
   ) {
   }
 
-  send(msg: Message): Observable<MsgResponse> {
-    return this.http.post<MsgResponse>(`${URL}/sendmail`, msg);
+  send(msg: Message): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(`${environment.apiUrl}/sendmail`, msg);
   }
 }

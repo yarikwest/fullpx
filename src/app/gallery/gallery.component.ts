@@ -23,7 +23,11 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.sub = this.communicateService.photos$.subscribe(photos => this.photos = photos);
+    this.sub = this.communicateService.photos$.subscribe(photos => {
+      if (this.photos.length === 0) {
+        this.photos = photos;
+      }
+    });
   }
 
   openPhoto(index: number) {

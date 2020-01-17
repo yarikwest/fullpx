@@ -55,9 +55,10 @@ export class UploadPageComponent implements OnInit {
     formData.append('description', this.form.value.description);
     formData.append('categories', this.form.value.categories);
 
-    this.fileUploadService.postFile(formData).subscribe(() => {
+    this.fileUploadService.postFile(formData).subscribe((resp) => {
       this.form.reset();
       this.previewUrl = null;
+      M.toast({html: resp.message, classes: 'rounded teal darken-1'});
     });
   }
 

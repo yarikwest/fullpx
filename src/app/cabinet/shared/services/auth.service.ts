@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, Subject, throwError} from 'rxjs';
-import {AuthResponse, LoginDataObject, SignUpDataObject} from '../../../shared/interfaces';
+import {AuthResponse, LoginDataObject, MessageResponse, SignUpDataObject} from '../../../shared/interfaces';
 import {catchError, tap} from 'rxjs/operators';
-
-const URL = 'http://localhost:8080';
+import {environment} from '../../../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
@@ -14,8 +13,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login(user: LoginDataObject): Observable<any> {
-    return this.http.post(`${URL}/cabinet/login`, user)
+  login(user: LoginDataObject): Observable<AuthResponse | MessageResponse> {
+    return this.http.post(`${environment.apiUrl}/cabinet/login`, user)
       .pipe(
         tap(this.setToken),
         catchError(this.handleError.bind(this))
@@ -26,16 +25,16 @@ export class AuthService {
     this.setToken(null);
   }
 
-  signUp(user: SignUpDataObject): Observable<any> {
-    return this.http.post(`${URL}/sign-up`, user)
+  signUp(user: SignUpDataObject): Observable<MessageResponse> {
+    return this.http.post(`${environment.apiUrl}/sign-up`, user)
       .pipe(
         catchError(this.handleError.bind(this))
       );
   }
 
   private handleError(error: HttpErrorResponse) {
-    const object = error.error.object;
-    this.error$.next(object);
+    const message = error.error.message;
+    this.error$.next(message);
 
     return throwError(error);
   }

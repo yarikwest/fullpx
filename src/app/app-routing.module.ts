@@ -28,7 +28,7 @@ const routes: Routes = [
           {path: ':username/photos', component: GalleryComponent},
           {path: ':username/albums', component: UserPageAlbumsComponent},
           {path: ':username/feedback', component: UserPageFeedbackComponent},
-          {path: ':username/albums/:album', component: AlbumComponent, resolve: {album: AlbumResolver}}
+          {path: ':username/albums/:album', component: AlbumComponent}
         ]
       }
     ]

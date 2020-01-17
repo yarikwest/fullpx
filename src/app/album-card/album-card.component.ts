@@ -10,8 +10,7 @@ export class AlbumCardComponent implements OnInit {
 
   @Input() album: Album;
 
-  constructor(
-  ) {
+  constructor() {
   }
 
   ngOnInit() {

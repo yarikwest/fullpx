@@ -12,6 +12,7 @@ import {AlbumComponent} from '../../album/album.component';
 import {AboutPageComponent} from '../about-page/about-page.component';
 import {AlbumsPageComponent} from '../albums-page/albums-page.component';
 import {FeedbackPageComponent} from '../feedback-page/feedback-page.component';
+import {AlbumCreatorComponent} from '../album-creator/album-creator.component';
 
 
 @NgModule({
@@ -46,7 +47,12 @@ import {FeedbackPageComponent} from '../feedback-page/feedback-page.component';
     AboutPageComponent,
     AlbumsPageComponent,
     FeedbackPageComponent,
+    AlbumCreatorComponent,
+  ],
+  entryComponents: [
+    AlbumCreatorComponent,
   ]
+
 })
 export class CabinetModule {
 

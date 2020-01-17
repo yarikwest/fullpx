@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-
-const URL = 'http://localhost:8080';
+import {MessageResponse} from '../../../shared/interfaces';
+import {environment} from '../../../../environments/environment';
 
 @Injectable({providedIn: 'root'})
 export class UploadFileService {
@@ -12,7 +12,7 @@ export class UploadFileService {
   ) {
   }
 
-  postFile(file: FormData): Observable<any> {
-    return this.http.post(`${URL}/cabinet/upload`, file);
+  postFile(file: FormData): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(`${environment.apiUrl}/cabinet/upload`, file);
   }
 }

@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Album, User} from '../shared/interfaces';
-import {PhotoService} from '../shared/services/photo.service';
 import {CommunicateService} from '../shared/services/communicate.service';
 import {Subscription} from 'rxjs';
+import {AlbumService} from '../shared/services/album.service';
 
 @Component({
   selector: 'app-user-page-albums',
@@ -16,7 +16,7 @@ export class UserPageAlbumsComponent implements OnInit, OnDestroy {
   sub: Subscription;
 
   constructor(
-    private photoService: PhotoService,
+    private albumService: AlbumService,
     private communicateService: CommunicateService
   ) {
     this.sub = this.communicateService.user$.subscribe(user => this.user = user);
@@ -24,7 +24,7 @@ export class UserPageAlbumsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (this.user) {
-      this.photoService.getAlbums(this.user.username).subscribe(albums => {
+      this.albumService.getAlbums(this.user.username).subscribe(albums => {
         this.albums = albums;
       });
     }

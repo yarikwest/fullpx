@@ -9,8 +9,8 @@ export interface AuthResponse {
   expiresIn: string;
 }
 
-export interface MsgResponse {
-  object: string;
+export interface MessageResponse {
+  message: string;
   code: number;
 }
 
@@ -35,6 +35,7 @@ export interface User {
 }
 
 export interface Photo {
+  id: bigint;
   categories: Array<string>;
   description: string;
   imageUrl: string;

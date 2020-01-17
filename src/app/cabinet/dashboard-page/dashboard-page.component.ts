@@ -1,4 +1,4 @@
-import {Component, DoCheck, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {Photo, User} from '../../shared/interfaces';
 import {UserService} from '../../shared/services/user.service';
 import {CommunicateService} from '../../shared/services/communicate.service';
@@ -19,7 +19,7 @@ export class DashboardPageComponent implements OnInit, DoCheck {
   constructor(
     private userService: UserService,
     private photoService: PhotoService,
-    private communicateService: CommunicateService
+    private communicateService: CommunicateService,
   ) {
   }
 
