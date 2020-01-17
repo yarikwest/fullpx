@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Data
 public class PhotoDto {
-
+    private Long id;
     private String description;
     private Set<String> categories;
     private UserDto user;

@@ -1,6 +1,5 @@
 package com.jarowest.fullpxserver.dto;
 
-import com.jarowest.fullpxserver.model.Album;
 import lombok.Data;
 
 import java.util.List;

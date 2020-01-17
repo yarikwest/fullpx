@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -66,6 +67,11 @@ public class PhotoServiceImpl implements PhotoService {
     @Override
     public Set<Photo> findAllByUsername(String username) {
         return photoRepository.findAllByUserName(username);
+    }
+
+    @Override
+    public List<Photo> findAllById(Iterable<Long> ids) {
+        return photoRepository.findAllById(ids);
     }
 
 }

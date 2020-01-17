@@ -93,6 +93,7 @@ public class PhotoRestController {
                             .map(Category::getName)
                             .collect(Collectors.toSet());
 
+                    photoDto.setId(photo.getId());
                     photoDto.setDescription(photo.getDescription());
                     photoDto.setCategories(categories);
                     photoDto.setUser(UserDto.fromUser(photo.getUser()));

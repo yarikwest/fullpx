@@ -7,12 +7,13 @@ import com.jarowest.fullpxserver.model.Album;
 import com.jarowest.fullpxserver.model.Category;
 import com.jarowest.fullpxserver.model.Photo;
 import com.jarowest.fullpxserver.service.AlbumService;
+import com.jarowest.fullpxserver.service.PhotoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -23,9 +24,11 @@ import java.util.stream.Collectors;
 public class AlbumRestController {
 
     private final AlbumService albumService;
+    private final PhotoService photoService;
 
-    public AlbumRestController(AlbumService albumService) {
+    public AlbumRestController(AlbumService albumService, PhotoService photoService) {
         this.albumService = albumService;
+        this.photoService = photoService;
     }
 
     @GetMapping("/user/{username}")
@@ -42,6 +45,26 @@ public class AlbumRestController {
 
 
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping
+    public ResponseEntity<AlbumDto> create(@RequestBody AlbumDto albumDto) {
+        if (albumDto == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        Iterable<Long> ids = albumDto.getPhotos().stream()
+                .map(PhotoDto::getId)
+                .collect(Collectors.toList());
+        Set<Photo> photosById = new HashSet<>(photoService.findAllById(ids));
+
+        Album album = new Album();
+        album.setName(albumDto.getName());
+        album.setDescription(albumDto.getDescription());
+        album.addAllPhotos(photosById);
+
+        albumService.create(album);
+
+        return ResponseEntity.ok(albumDto);
     }
 
     private List<PhotoDto> getListPhotoDto(Set<Photo> photos) {

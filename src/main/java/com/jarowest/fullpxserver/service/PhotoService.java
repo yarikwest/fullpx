@@ -2,6 +2,7 @@ package com.jarowest.fullpxserver.service;
 
 import com.jarowest.fullpxserver.model.Photo;
 
+import java.util.List;
 import java.util.Set;
 
 public interface PhotoService {
@@ -20,4 +21,6 @@ public interface PhotoService {
     Set<Photo> findAll();
 
     Set<Photo> findAllByUsername(String username);
+
+    List<Photo> findAllById(Iterable<Long> ids);
 }
