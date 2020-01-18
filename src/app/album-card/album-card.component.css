@@ -1,9 +1,9 @@
-.album-cover {
+.card-image {
   display: flex;
   flex-wrap: wrap;
 }
 
-.album-cover .col {
+.card-image .col {
   padding: 0;
   height: 150px;
 }

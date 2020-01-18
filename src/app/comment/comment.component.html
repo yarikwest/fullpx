@@ -1,13 +1,11 @@
-<mz-card
-  class="blue-grey white-text"
-  [hoverable]="'true'">
-  <mz-card-title>
-    <div class="feedback-head">
-      <span>{{feedback.author}}</span>
-      <span class="feedback-date">{{feedback.created | date : 'd MMM y, h:mm a'}}</span>
+<div class="col s12">
+  <div class="card blue-grey">
+    <div class="card-content white-text">
+      <div class="card-title">
+        <span>{{feedback.author}}</span>
+        <span class="feedback-date">{{feedback.created | date : 'd MMM y, h:mm a'}}</span>
+      </div>
+      <p>{{feedback.text}}</p>
     </div>
-  </mz-card-title>
-  <mz-card-content>
-    {{feedback.text}}
-  </mz-card-content>
-</mz-card>
+  </div>
+</div>
