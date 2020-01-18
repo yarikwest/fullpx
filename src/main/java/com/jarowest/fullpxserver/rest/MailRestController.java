@@ -1,7 +1,7 @@
 package com.jarowest.fullpxserver.rest;
 
 import com.jarowest.fullpxserver.dto.EmailDto;
-import com.jarowest.fullpxserver.dto.ResponseMessageDto;
+import com.jarowest.fullpxserver.dto.MessageResponseDto;
 import com.jarowest.fullpxserver.service.impl.MailSendService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +20,7 @@ public class MailRestController {
     }
 
     @PostMapping
-    public ResponseEntity send(@RequestBody EmailDto emailDto) {
+    public ResponseEntity<MessageResponseDto> send(@RequestBody EmailDto emailDto) {
 
         String msg = emailDto.getText() +
                 "\nEmail: " +
@@ -30,6 +30,6 @@ public class MailRestController {
 
         mailSendService.sendEmail(emailDto.getTo(), msg);
 
-        return ResponseEntity.ok(new ResponseMessageDto<>("Message was send", 200));
+        return ResponseEntity.ok(new MessageResponseDto("Message was send", 200));
     }
 }

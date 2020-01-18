@@ -2,7 +2,7 @@ package com.jarowest.fullpxserver.rest;
 
 import com.jarowest.fullpxserver.dto.AuthenticationRequestDto;
 import com.jarowest.fullpxserver.dto.AuthenticationResponseDto;
-import com.jarowest.fullpxserver.dto.ResponseMessageDto;
+import com.jarowest.fullpxserver.dto.MessageResponseDto;
 import com.jarowest.fullpxserver.model.User;
 import com.jarowest.fullpxserver.security.jwt.JwtTokenProvider;
 import com.jarowest.fullpxserver.service.UserService;
@@ -34,7 +34,7 @@ public class AuthenticationRestController {
     }
 
     @PostMapping
-    public ResponseEntity login(@RequestBody AuthenticationRequestDto requestDto) {
+    public ResponseEntity<?> login(@RequestBody AuthenticationRequestDto requestDto) {
 
         try {
             String email = requestDto.getEmail();
@@ -54,10 +54,8 @@ public class AuthenticationRestController {
             return ResponseEntity.ok(responseDto);
 
         } catch (AuthenticationException e) {
-            return new ResponseEntity(
-                    new ResponseMessageDto("Invalid username or password", HttpStatus.UNAUTHORIZED.value()),
-                    HttpStatus.UNAUTHORIZED
-            );
+            return new ResponseEntity<>(
+                    new MessageResponseDto("Invalid username or password", 401), HttpStatus.UNAUTHORIZED);
         }
     }
 }

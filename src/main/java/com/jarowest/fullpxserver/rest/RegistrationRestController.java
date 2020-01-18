@@ -1,6 +1,6 @@
 package com.jarowest.fullpxserver.rest;
 
-import com.jarowest.fullpxserver.dto.ResponseMessageDto;
+import com.jarowest.fullpxserver.dto.MessageResponseDto;
 import com.jarowest.fullpxserver.dto.UserDto;
 import com.jarowest.fullpxserver.model.User;
 import com.jarowest.fullpxserver.service.UserService;
@@ -22,22 +22,22 @@ public class RegistrationRestController {
     }
 
     @PostMapping
-    public ResponseEntity<ResponseMessageDto<?>> register(@RequestBody UserDto userDto) {
+    public ResponseEntity<MessageResponseDto> register(@RequestBody UserDto userDto) {
 
         if (userService.existByUsername(userDto.getUsername())) {
             return new ResponseEntity<>(
-                    new ResponseMessageDto<>("User with username: " + userDto.getUsername() + " already exists", 409),
+                    new MessageResponseDto("User with username: " + userDto.getUsername() + " already exists", 409),
                     HttpStatus.CONFLICT);
         } else if (userService.existByEmail(userDto.getEmail())) {
             return new ResponseEntity<>(
-                    new ResponseMessageDto<>("User with email: " + userDto.getEmail() + " already exists", 409),
+                    new MessageResponseDto("User with email: " + userDto.getEmail() + " already exists", 409),
                     HttpStatus.CONFLICT);
         } else {
             User user = userDto.toUser();
-            UserDto result = UserDto.fromUser(userService.register(user));
+            userService.register(user);
 
             return new ResponseEntity<>(
-                    new ResponseMessageDto<>(result, 200), HttpStatus.CREATED);
+                    new MessageResponseDto("User was created", 201), HttpStatus.CREATED);
         }
 
 
