@@ -22,7 +22,6 @@
 }
 
 .avatar {
-  background-image: url("../../../assets/images/photo.jpg");
   background-size: cover;
   float: left;
   height: 100px;
