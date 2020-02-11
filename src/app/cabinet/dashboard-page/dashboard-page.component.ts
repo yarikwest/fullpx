@@ -25,9 +25,6 @@ export class DashboardPageComponent implements OnInit, DoCheck {
 
   ngOnInit(): void {
     this.userService.getUser(localStorage.getItem('username')).subscribe(user => {
-      if (user.backgroundPhotoUrl == null) {
-        user.backgroundPhotoUrl = '../../../assets/images/default_user_img.png';
-      }
       this.user = user;
     });
     this.photoService.getPhotosByUsername(localStorage.getItem('username')).subscribe(photos => this.photos = photos);

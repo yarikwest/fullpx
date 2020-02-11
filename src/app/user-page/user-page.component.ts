@@ -30,10 +30,6 @@ export class UserPageComponent implements OnInit, DoCheck {
       this.user = data.user;
       this.photos = data.photos;
 
-      if (this.user.backgroundPhotoUrl === null) {
-        this.user.backgroundPhotoUrl = '../../assets/images/default_user_img.png';
-      }
-
       this.communicateService.setUser(this.user);
       this.communicateService.setPhotos(this.photos);
 
