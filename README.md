@@ -4,6 +4,8 @@
 It is client's part of the application "Fullpx" - web-service for publishing photos and creating portfolio for photografers.
 Server's part of the application is "Fullpx-server" which you can see by accessing this github [link](https://github.com/yarikwest/fullpx-server)
 
+![Screenshot](readme-img/screen.png)
+
 ### Tech
 
 * [Angular] - v8
