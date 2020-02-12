@@ -1,27 +1,27 @@
-# FullpxClient
+# Fullpx-client (SPA)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+"Fullpx-client" is a SPA built on Angular.
+It is client's part of the application "Fullpx" - web-service for publishing photos and creating portfolio for photografers.
+Server's part of the application is "Fullpx-server" which you can see by accessing this github [link](https://github.com/yarikwest/fullpx-server)
 
-## Development server
+### Tech
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* [Angular] - v8
+* [RxJS]
+* [Materialize CSS] - v1.0.0, a modern responsive front-end framework based on Material Design
+* [Flex Gallery] - Flex Gallery is a flexible responsive justified image gallery with CSS and jQuery.
 
-## Code scaffolding
+### Run
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Full application deployed on Heroku by this [link](https://fullpx.herokuapp.com/)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Todos
 
-## Running unit tests
+ - Write Tests
+ - Write own algorithm for flexible gallery using Angular approuch
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+   [Angular]: <https://angular.io/>
+   [Materialize CSS]: <https://materializecss.com/>
+   [RxJS]: <https://rxjs-dev.firebaseapp.com/>
+   [Flex Gallery]: <https://github.com/elvisyjlin/flex-gallery>
