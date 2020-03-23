@@ -1,0 +1,9 @@
+<mz-card
+  class="blue-grey darken-3 white-text scroll">
+  <mz-card-content>
+    <app-comment
+      [feedback]="feedback"
+      *ngFor="let feedback of feedbackList"
+    ></app-comment>
+  </mz-card-content>
+</mz-card>

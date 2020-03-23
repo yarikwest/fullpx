@@ -1,0 +1,63 @@
+<mz-modal [fullscreen]="'true'" *ngIf="photos.length > 0">
+  <mz-modal-content>
+    <div class="photo-view">
+      <div class="photo-close-button">
+        <button mz-button (click)="close.emit()" [float]="true">
+          <i mz-icon class="white-text" [icon]="'close'"></i>
+        </button>
+      </div>
+      <div class="photo-navigation-container">
+        <a mz-button [flat]="true" (click)="previousPhoto()"
+           class="photo-navigation-container-left"
+        >
+          <i mz-icon [icon]="'chevron_left'"></i>
+        </a>
+      </div>
+      <div class="photo-image-safari">
+        <img src="{{photos[index].imageUrl}}" alt="">
+      </div>
+      <div class="photo-navigation-container">
+        <a mz-button [flat]="true" (click)="nextPhoto()"
+           class="photo-navigation-container-right"
+        >
+          <i mz-icon [icon]="'chevron_right'"></i>
+        </a>
+      </div>
+    </div>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <mz-card>
+      <mz-card-content>
+        <div class="photo-details row">
+          <div class="col s12 l6">
+            <a [routerLink]="['/users', photos[index].user.username, 'photos']">
+              <div class="avatar"
+                   [ngStyle]="{backgroundImage: 'url(' + photos[index].user.backgroundPhotoUrl + ')'}"
+              ></div>
+            </a>
+            <div class="title-block">
+              <div class="title"><h5>{{photos[index].user.firstName + ' ' + photos[index].user.lastName}}</h5></div>
+            </div>
+          </div>
+          <div class="col s12 l6">Uploaded: <br><span class="flow-text">{{photos[index].created | date}}</span>
+          </div>
+          <div class="col s12 l6 category-box">
+            <a [routerLink]="['/browse']"
+               [queryParams]="{category: category}"
+               *ngFor="let category of photos[index].categories">
+              <div class="category-tag">
+                <p>{{category}}</p>
+              </div>
+            </a>
+          </div>
+          <div class="col s12 l6" *ngIf="photos[index].album != null">Album:<br>
+            <a
+              [routerLink]="['/users', photos[index].user.username, 'albums', photos[index].album]"
+              class="flow-text">{{photos[index].album}}
+            </a>
+          </div>
+        </div>
+      </mz-card-content>
+    </mz-card>
+  </mz-modal-footer>
+</mz-modal>

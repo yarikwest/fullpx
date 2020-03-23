@@ -1,0 +1,52 @@
+<mz-card
+  class="blue-grey darken-3 white-text scroll">
+  <mz-card-title>
+    <button
+      mz-button
+      [float]="true"
+      (click)="showCommentForm()"
+    ><i mz-icon class="rotate" [class.down]="formVisible"
+        [icon]="'add'"></i>
+    </button>
+  </mz-card-title>
+  <mz-card-content>
+    <form method="post" class="card-comment-add"
+          *ngIf="formVisible"
+          [formGroup]="form"
+          (ngSubmit)="submit()"
+    >
+      <mz-card
+        class="blue-grey white-text"
+        [hoverable]="'true'">
+        <mz-card-content>
+          <mz-input-container>
+            <input mz-input formControlName="author"
+                   id="author"
+                   type="text"
+                   [label]="'Author'"
+                   [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid,
+                   valid: form.get('author').valid}"
+            >
+          </mz-input-container>
+          <mz-textarea-container>
+               <textarea mz-textarea formControlName="text" class="white-text"
+                         id="text"
+                         length="255"
+                         [label]="'Text'"
+                         [ngClass]="{invalid: form.get('text').touched && form.get('text').invalid,
+                         valid: form.get('text').valid}"
+               ></textarea>
+          </mz-textarea-container>
+        </mz-card-content>
+        <mz-card-action>
+          <button mz-button type="submit" [disabled]="form.invalid"><i mz-icon [icon]="'send'" [align]="'right'"></i>Send
+          </button>
+        </mz-card-action>
+      </mz-card>
+    </form>
+    <app-comment
+      [feedback]="feedback"
+      *ngFor="let feedback of feedbackList"
+    ></app-comment>
+  </mz-card-content>
+</mz-card>

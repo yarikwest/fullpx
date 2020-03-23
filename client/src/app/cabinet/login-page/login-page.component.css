@@ -1,0 +1,40 @@
+#login-page {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+.login-img {
+  background-image: url("../../../assets/images/sample-2.jpg");
+  width: 50vw;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3vw;
+}
+
+.login-form {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#signFb {
+  margin: 50px 0;
+}
+
+@media screen and (max-width: 600px) {
+  #login-page {
+    flex-direction: column-reverse;
+  }
+
+  .login-img {
+    width: 100vw;
+    height: 20vh;
+  }
+
+  .login-form {
+    width: 100vw;
+  }
+}

@@ -1,0 +1,40 @@
+.scroll{
+  overflow-y: auto;
+  max-height: 530px;
+}
+
+.card-comment-add{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.rotate {
+  -moz-transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+}
+.rotate.down {
+  -moz-transform:rotate(135deg);
+  -webkit-transform:rotate(135deg);
+  transform:rotate(135deg);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

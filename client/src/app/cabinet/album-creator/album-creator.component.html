@@ -1,0 +1,44 @@
+<mz-modal [fullscreen]="true">
+  <mz-modal-header>
+    <h4>Select photos</h4>
+    <div class="photo-close-button">
+      <button mz-button (click)="close.emit(null)" [float]="true">
+        <i mz-icon class="white-text" [icon]="'close'"></i>
+      </button>
+    </div>
+  </mz-modal-header>
+  <mz-modal-content>
+    <form id="form" method="post" [formGroup]="form" (ngSubmit)="createAlbum()">
+      <mz-input-container>
+        <input mz-input
+               id="name"
+               type="text"
+               formControlName="name"
+               [label]="'Album Name'"
+               [ngClass]="{invalid: form.get('name').touched && form.get('name').invalid,
+               valid: form.get('name').valid}">
+      </mz-input-container>
+      <mz-textarea-container>
+      <textarea mz-textarea class="white-text"
+                id="description"
+                length="255"
+                formControlName="description"
+                [label]="'Description'"
+                [ngClass]="{invalid: form.get('description').touched && form.get('description').invalid,
+                valid: form.get('description').valid}"
+      ></textarea>
+      </mz-textarea-container>
+      <button mz-button type="submit" form="form"
+              [disabled]="form.invalid"
+      ><i mz-icon [icon]="'library_add'" [align]="'right'"></i>
+        Create
+      </button>
+      <ul>
+        <li *ngFor="let photo of photos">
+          <input [id]="photo.id" type="checkbox" [value]="photo.id" (change)="onCheckboxChange($event)">
+          <label [for]="photo.id"><img [src]="photo.imageUrl"/></label>
+        </li>
+      </ul>
+    </form>
+  </mz-modal-content>
+</mz-modal>

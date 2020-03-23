@@ -1,0 +1,38 @@
+<div class="block-wrapper">
+  <div class="coverphoto">
+    <div class="container">
+      <div class="avatar"
+           [ngStyle]="{backgroundImage: 'url(' + user.backgroundPhotoUrl + ')'}">
+      </div>
+      <div class="title-block">
+        <div class="title"><h5>{{user.firstName + ' ' + user.lastName}}</h5></div>
+        <button (click)="openMessageForm()" class="box-mail btn-flat"><i class="material-icons">mail_outline</i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <ul class="tabs z-depth-1 blue-grey darken-3 center">
+      <li class="tab col s3">
+        <a [routerLink]="['/users', user.username, 'about' ]" routerLinkActive="active">About</a>
+      </li>
+      <li class="tab col s3">
+        <a [routerLink]="['/users', user.username, 'photos' ]" routerLinkActive="active">Photos</a>
+      </li>
+      <li class="tab col s3">
+        <a [routerLink]="['/users', user.username, 'albums' ]" routerLinkActive="active">Albums</a>
+      </li>
+      <li class="tab col s3">
+        <a [routerLink]="['/users', user.username, 'feedback' ]" routerLinkActive="active">Feedback</a>
+      </li>
+      <li class="tab">
+        <a class="active" [ngStyle]="{padding: 0}"></a>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<ng-template appRef></ng-template>

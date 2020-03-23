@@ -1,0 +1,32 @@
+<div class="row" *ngIf="user">
+  <mz-card
+    class="blue-grey darken-3 white-text col m5 s12"
+    [hoverable]="true">
+    <mz-card-title>
+      City
+    </mz-card-title>
+    <mz-card-content>
+      {{user.city}}
+    </mz-card-content>
+  </mz-card>
+  <mz-card
+    class="blue-grey darken-3 white-text col m5 s12 offset-m2"
+    [hoverable]="true">
+    <mz-card-title>
+      Phone
+    </mz-card-title>
+    <mz-card-content>
+      {{user.phone}}
+    </mz-card-content>
+  </mz-card>
+  <mz-card
+    class="blue-grey darken-3 white-text col s12"
+    [hoverable]="true">
+    <mz-card-title>
+      About me
+    </mz-card-title>
+    <mz-card-content>
+      {{user.description}}
+    </mz-card-content>
+  </mz-card>
+</div>

@@ -1,0 +1,18 @@
+<div id="container" #fgContainer>
+  <div class="fg-container">
+    <div class="fg-item" *ngFor="let photo of photos; let i = index; last as isLast">
+      <a (click)="openPhoto(i)">
+        <img class="fg-img " bind-attr.fg-img-src="photo.imageUrl">
+      </a>
+      <span class="fg-text">
+          <a [routerLink]="['/users', photo.user.username, 'photos']" class="chip">
+            <img [src]="photo.user.backgroundPhotoUrl" class="user-avatar">
+            {{photo.user.firstName + ' ' + photo.user.lastName}}
+          </a>
+          </span>
+      <span *ngIf="isLast; then fgContainer | flexGallery"></span>
+    </div>
+  </div>
+</div>
+
+<ng-template appRef></ng-template>

@@ -1,0 +1,39 @@
+#signup-page {
+  display: flex;
+}
+
+.signup-img {
+  background-image: url("../../../assets/images/sample-2.jpg");
+  width: 40vw;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding-left: 3vw;
+}
+
+.signup-form {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#signFb {
+  margin: 50px 0;
+}
+
+@media screen and (max-width: 600px) {
+  #signup-page {
+    flex-direction: column;
+  }
+
+  .signup-img {
+    width: 100vw;
+    height: 20vh;
+  }
+
+  .signup-form {
+    width: 100vw;
+  }
+}
