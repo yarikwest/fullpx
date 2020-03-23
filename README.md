@@ -41,7 +41,4 @@ Application deployed on Heroku by this [link](https://fullpx.herokuapp.com)
    [Angular]: <https://angular.io/>
    [RxJS]: <https://rxjs-dev.firebaseapp.com/>
    [Materialize CSS]: <https://materializecss.com/>
-   [Angular]: <https://angular.io/>
-   [Materialize CSS]: <https://materializecss.com/>
-   [RxJS]: <https://rxjs-dev.firebaseapp.com/>
    [Flex Gallery]: <https://github.com/elvisyjlin/flex-gallery>
