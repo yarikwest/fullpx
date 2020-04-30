@@ -22,7 +22,7 @@
     "angular2-materialize": "^15.1.10",
     "dynamics.js": "^1.1.5",
     "hammerjs": "^2.0.8",
-    "jquery": "^2.2.4",
+    "jquery": "^3.5.0",
     "materialize-css": "^1.0.0",
     "ngx-materialize": "^6.1.3",
     "flex-gallery": "git+https://github.com/yarikwest/flex-gallery.git",
